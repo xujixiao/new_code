@@ -5,3 +5,9 @@
 .DS_Store
 /build
 /captures
+/app/app.iml
+/app/new_code.iml
+/settings.gradle
+/gradle.properties
+/gradlew
+/gradlew.bat
