@@ -17,5 +17,6 @@ public class MainActivity extends Activity {
 
     public void test() {
         int i = 90;
+        int y = 90;
     }
 }
