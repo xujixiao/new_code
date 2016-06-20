@@ -14,7 +14,8 @@ public class MainActivity extends Activity {
         Log.d("xujxiao", "fjsdo");
 
     }
-    public void test(){
 
+    public void test() {
+        int i = 90;
     }
 }
