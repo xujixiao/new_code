@@ -1,0 +1,212 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<resources>
+    <!-- NETEASE_IM -->
+    <color name="color_gray">#EDEDED</color>
+    <!-- main bg color -->
+    <color name="color_background">#ECF1F5</color>
+
+    <!-- setting -->
+    <color name="color_grey_555555">#555555</color>
+    <color name="action_bar_black_title_1f1f1f">#1f1f1f</color>
+    <color name="action_bar_black_title_color">#252525</color>
+    <color name="transparent">#00000000</color>
+    <color name="add_create_bg_90FFFFFF">#90FFFFFF</color>
+    <color name="half_transparent">#88000000</color>
+    <color name="half_22_transparent">#22000000</color>
+    <color name="white">#FFFFFF</color>
+    <color name="right_text">#FFFFFF</color>
+    <color name="black">#000000</color>
+    <color name="grey_333333">#333333</color>
+    <color name="grey_ececec">#ececec</color>
+    <color name="global_bg_9000">#9000</color>
+    <color name="color_green_01d9ae">#01D9AE</color>
+    <color name="color_blue_0888ff">#0888ff</color>
+    <color name="color_blue_4c9bff">#4c9bff</color>
+    <color name="color_gray_d9d9d9">#d9d9d9</color>
+    <color name="action_bar_tittle_color_555555">#555555</color>
+    <color name="grey_white_F7F7F7">#F7F7F7</color>
+    <color name="grey_white_has_alpha_66FAFAFA">#66FAFAFA</color>
+    <color name="color_network_bar_bg_ee4b62">#ee4b62</color>
+    <color name="color_black_333333">#333333</color>
+    <color name="color_grey_999999">#999999</color>
+    <color name="color_grey_f5f5f5">#f5f5f5</color>
+    <color name="color_grey_888888">#888888</color>
+    <color name="color_activity_blue_bg_f7389fff">#f7389fff</color>
+    <color name="color_green_00ae8c">#00ae8c</color>
+    <color name="split_line_grey_color_d9d9d9">#D9D9D9</color>
+    <color name="green_4DC0A4">#4DC0A4</color>
+    <color name="color_037aff">#037aff</color>
+    <color name="gray_c5c4c4">#c5c4c4</color>
+    <color name="GreyWhite_F7F7F7">#F7F7F7</color>
+    <color name="color_register_text_normal_1ca086">#1ca086</color>
+    <color name="color_register_text_normal_246b61">#246b61</color>
+    <color name="color_register_text_disable_39b79d">#39b79d</color>
+    <color name="im_list_select_hover_dbdbdb">#dbdbdb</color>
+    <color name="color_text_ffaaaaaa">#ffaaaaaa</color>
+    <color name="title_color_01d9ae">#01D9AE</color>
+    <color name="color_b3b3b3">#b3b3b3</color>
+    <color name="color_030303">#030303</color>
+    <color name="color_green_disable_a2efe0">#a2efe0</color>
+    <color name="color_green_00d3a9">#ff00D3A9</color>
+    <color name="color_red_ccfa3c55">#ccfa3c55</color>
+    <color name="color_black_b3000000">#b3000000</color>
+    <color name="color_white_66ffffff">#66ffffff</color>
+    <color name="color_white_ffffffff">#ffffffff</color>
+    <color name="color_blue_1081ea">#1081ea</color>
+    <color name="color_grey_eaeaea">#eaeaea</color>
+    <color name="color_green_4bbda2">#4bbda2</color>
+    <color name="color_blue_3300FF">#3300FF</color>
+    <color name="red_ff5776">#ff5776</color>
+
+    <color name="color_black_333333_90_transparent">#e5333333</color>
+    <color name="color_black_000000_88_transparent">#e0000000</color>
+
+    <!-- main bg color -->
+    <color name="g_child_page_bg_color_FFFFFF">#FFFFFF</color>
+    <color name="list_bg_color">#FFFFFF</color>
+    <color name="main_bg_color">#FFFFFF</color>
+
+    <!-- session -->
+    <color name="color_message_default_bg">#e9ecf0</color>
+    <color name="input_panel_text_color_757572">#757572</color>
+    <color name="color_gray_cbd0d8">#cbd0d8</color>
+    <color name="help_color">#ff999999</color>
+
+    <!-- image picker -->
+    <color name="color_split_line_d9d9d9">#d9d9d9</color>
+    <color name="color_split_line_cccccc">#cccccc</color>
+
+    <!-- contact -->
+    <color name="contact_list_hover">#d9d9d9</color>
+    <color name="contact_letter_idx_bg">#33000000</color>
+    <color name="contacts_letters_color">#80807c</color>
+    <color name="bussiness_card_gridview_bg">#ECF1F5</color>
+    <color name="press_mask">#33000000</color>
+    <color name="color_grey_ababab">#ababab</color>
+    <color name="color_yellow_796413">#796413</color>
+    <color name="color_yellow_ffda3d">#ffda3d</color>
+    <color name="color_yellow_b39729">#b39729</color>
+    <color name="color_red_f04c62">#f04c62</color>
+    <color name="color_red_f06d5c">#f06d5c</color>
+    <color name="color_red_fd5878">#fd5878</color>
+    <color name="color_red_f64747">#f64747</color>
+
+    <!-- setting -->
+    <color name="color_black_ff333333">#ff333333</color>
+    <color name="color_black_ff666666">#ff666666</color>
+    <color name="color_black_ff999999">#ff999999</color>
+    <color name="color_gray_bfc2c5">#bfc2c5</color>
+    <color name="red_pressed">#dc143c</color>
+    <color name="red_normal_new">#FF3366</color>
+    <color name="red_pressed_new">#990033</color>
+
+
+    <!-- 布局文件所用颜色-->
+    <color name="app_background_f2f2f2">#f2f2f2</color>
+    <color name="text_color333333">#333333</color>
+    <color name="hint_colorcccccc">#cccccc</color>
+    <color name="hint_deep_color_f2f2f2">#f2f2f2</color>
+
+    <!-- 通用-->
+    <color name="background">#f2f2f2</color>
+    <color name="top_background">#03BFA0</color>
+
+    <color name="bottom_normal">#5F646E</color>
+    <color name="bottom_pressed">#03BFA0</color>
+    <color name="checkbox_normal">#5F646E</color>
+    <color name="checkbox_pressed">#03BFA0</color>
+
+    <color name="textcolor_5F646E">#5F646E</color>
+    <color name="textcolor_999999">#999999</color>
+    <color name="color_bfbfbf">#bfbfbf</color>
+    <color name="textcolor_666666">#666666</color>
+    <color name="textcolor4">#DDDDDD</color>
+    <color name="textcolor5">#FF6600</color>
+    <color name="textcolor6">#03B598</color>
+    <color name="textcolor7">#ff0000</color>
+    <color name="textcolor4c9bff">#4c9bff</color>
+    <color name="textcolor_fd4876">#fd4876</color>
+    <color name="textcolor_FF0000">#FF0000</color>
+    <color name="b2b2b2">#b2b2b2</color>
+    <color name="line_color_dddddd">#dddddd</color>
+    <color name="button_color_fec2d1">#fec2d1</color>
+    <color name="button_basic_board_color">#1bbc9b</color>
+    <color name="imageview_color_basic_board_gray">#dddddd</color>
+    <color name="text_color_good_name_black">#262626</color>
+    <color name="text_color_good_pro_grey">#b2b2b2</color>
+    <color name="button_color_green">#1bbc9b</color>
+    <color name="gray_cccccc">#cccccc</color>
+    <color name="gray_bdbdbd">#bdbdbd</color>
+    <color name="gray_666666">#666666</color>
+    <color name="gray_ececec">#ececec</color>
+    <color name="dark_grey">#666666</color>
+    <color name="french_grey">#929292</color>
+    <color name="particulars_award">#f2f2f2</color>
+    <color name="buy_count_button_lose_focus_light_grey">#aaaaaa</color>
+    <color name="buy_count_button_lose_focus_grey">#dedede</color>
+    <color name="orange">#FF4500</color>
+    <color name="red">#F20D0D</color>
+    <color name="red_f64646">#f64646</color>
+    <color name="red_ff4876">#ff4876</color>
+    <color name="red_e23d67">#e23d67</color>
+    <color name="color_mine_sex_bg">#f2f2f2</color>
+
+    <color name="f22613">#f22613</color>
+    <color name="color_4c9bff">#4c9bff</color>
+    <color name="color_1bbc9b">#1bbc9b</color>
+    <color name="black_333333">#333333</color>
+    <color name="textview_location_color_00b16a">#00b16a</color>
+
+    <color name="color_ffc225">#ffc225</color>
+    <color name="color_6bc0f4">#6bc0f4</color>
+    <color name="color_00c8a9">#00c8a9</color>
+    <color name="color_dedede">#dedede</color>
+    <color name="color_ffcc26">#ffcc26</color>
+    <color name="color_666666">#666666</color>
+    <color name="color_ff3c30">#ff3c30</color>
+    <color name="color_f29790">#f29790</color>
+    <color name="color_fb7545">#fb7545</color>
+    <color name="color_ff6600">#ff6600</color>
+    <color name="color_f2f2f2">#f2f2f2</color>
+    <color name="color_guide_ed6a60">#ed6a60</color>
+    <color name="color_button_pressed_FFC2C1">#FFC2C1</color>
+    <color name="text_white_ffffff">#ffffff</color>
+
+
+    <!--二维码-->
+
+    <color name="bg_color">#EDEDED</color>
+    <color name="contents_text">#ff000000</color>
+    <color name="encode_view">#ffffffff</color>
+    <color name="help_button_view">#ffcccccc</color>
+    <color name="help_view">#ff404040</color>
+    <color name="possible_result_points">#c0ffff00</color>
+    <color name="result_image_border">#ffffffff</color>
+    <color name="result_minor_text">#ffc0c0c0</color>
+    <color name="result_points">#c000ff00</color>
+    <color name="result_text">#ffffffff</color>
+    <color name="result_view">#b0000000</color>
+    <color name="sbc_header_text">#ff808080</color>
+    <color name="sbc_header_view">#ffffffff</color>
+    <color name="sbc_list_item">#fffff0e0</color>
+    <color name="sbc_layout_view">#ffffffff</color>
+    <color name="sbc_page_number_text">#ff000000</color>
+    <color name="sbc_snippet_text">#ff4b4b4b</color>
+    <color name="share_text">#ff000000</color>
+    <color name="share_view">#ffffffff</color>
+    <color name="status_view">#50000000</color>
+    <color name="status_text">#ffffffff</color>
+    <color name="viewfinder_frame">#ff000000</color>
+    <color name="viewfinder_laser">#ffff0000</color>
+    <color name="viewfinder_mask">#60000000</color>
+    <color name="header">#58567D</color>
+    <color name="gray">#686868</color>
+    <color name="gray_33000000">#33000000</color>
+    <color name="blue_4C9BFF">#4C9BFF</color>
+    <color name="apply_for_enter_color">#fd4876</color>
+    <color name="save_photo_color">#666666</color>
+    <!--搜索-->
+    <color name="overall_search_bg">#f2f2f2</color>
+    <color name="overall_search_edit_bg">#ebeced</color>
+    <color name="search_text_color">#ff4876</color>
+</resources>

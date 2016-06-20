@@ -1,22 +1,42 @@
 package com.example.xujixiao.myapplication;
 
-import android.app.Activity;
 import android.os.Bundle;
-import android.util.Log;
+import android.view.View;
+
+import com.example.xujixiao.myapplication.base.BaseActivity;
+import com.example.xujixiao.myapplication.common.adapter.Test.SingleAdapterTestActivity;
 
 
-public class MainActivity extends Activity {
+public class MainActivity extends BaseActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        Log.d("xujxiao", "fjsdo");
+        init();
+    }
+
+    @Override
+    protected void findView() {
+        findViewById(R.id.single_adapter_test).setOnClickListener(this);
+    }
+
+    @Override
+    protected void parseIntent() {
 
     }
 
-    public void test() {
-        int i = 90;
-        int y = 90;
+    @Override
+    protected void initData() {
+
+    }
+
+    @Override
+    public void onClick(View view) {
+        switch (view.getId()) {
+            case R.id.single_adapter_test:
+                SingleAdapterTestActivity.start(MainActivity.this);
+                break;
+        }
     }
 }

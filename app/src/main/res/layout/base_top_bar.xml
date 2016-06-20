@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/top_head_layout"
+    android:layout_width="match_parent"
+    android:layout_height="45dp"
+    android:background="@color/white">
+    <!--通用头部-->
+    <LinearLayout
+        android:id="@+id/top_layout_back"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_centerVertical="true"
+        android:layout_marginLeft="@dimen/default_margin_12"
+        android:orientation="horizontal">
+
+        <com.example.xujixiao.myapplication.custom_view.IconfontTextView
+            android:id="@+id/top_left_textivew"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:gravity="center_vertical"
+            android:textColor="@color/textcolor_999999"
+            android:textSize="@dimen/text_size_21" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/center_layout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:gravity="center_vertical">
+
+        <TextView
+            android:id="@+id/top_title_textview"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:ellipsize="end"
+            android:maxLength="15"
+            android:singleLine="true"
+            android:textColor="@color/text_color333333"
+            android:textSize="@dimen/default_top_title_textsize" />
+
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:id="@+id/top_right_layout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_centerVertical="true"
+        android:layout_marginRight="@dimen/default_margin_12"
+        android:orientation="horizontal">
+
+        <FrameLayout
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent">
+
+            <com.utouu.im.view.IconfontNewTextView
+                android:id="@+id/top_search_bar"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_marginRight="@dimen/default_margin_12"
+                android:gravity="center_vertical"
+                android:textColor="@color/textcolor_999999"
+                android:textSize="@dimen/text_size_21"
+                android:visibility="gone" />
+
+        </FrameLayout>
+
+    </LinearLayout>
+
+    <View
+        android:id="@+id/title_layout_top_line"
+        android:layout_width="match_parent"
+        android:layout_height="0.5dp"
+        android:layout_alignParentBottom="true"
+        android:layout_marginTop="1dp"
+        android:background="@color/color_bfbfbf" />
+</RelativeLayout>
