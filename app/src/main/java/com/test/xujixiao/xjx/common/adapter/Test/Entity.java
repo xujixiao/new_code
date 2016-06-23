@@ -1,4 +1,4 @@
-package com.example.xujixiao.myapplication.common.adapter.Test;
+package com.test.xujixiao.xjx.common.adapter.Test;
 
 /**
  * Created by xujixiao on 2016/6/20.17:08

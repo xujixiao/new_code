@@ -14,7 +14,7 @@
         android:layout_marginLeft="@dimen/default_margin_12"
         android:orientation="horizontal">
 
-        <com.example.xujixiao.myapplication.custom_view.IconfontTextView
+        <com.test.xujixiao.xjx.custom_view.IconfontTextView
             android:id="@+id/top_left_textivew"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
