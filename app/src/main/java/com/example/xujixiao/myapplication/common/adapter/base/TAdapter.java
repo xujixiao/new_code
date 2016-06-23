@@ -16,6 +16,7 @@ import java.util.Set;
 
 /**
  * 通用adapter可以包含多种类型的viewholder
+ * create by xujixiao 2015-12-12
  *
  * @param <T>
  */

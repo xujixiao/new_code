@@ -1,4 +1,9 @@
 <resources>
+    <!-- Dialog 样式 -->
+    <style name="dialogTheme" parent="@android:style/Theme.Holo.Light.Dialog.NoActionBar"> <!-- Theme.Holo.Light.Dialog.NoActionBar -->
+        <item name="android:gravity">center</item>
 
+        <item name="android:windowBackground">@android:color/transparent</item>
+    </style>
 
 </resources>

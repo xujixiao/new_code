@@ -1,4 +1,4 @@
-package com.example.xujixiao.myapplication.common.adapter.utils;
+package com.example.xujixiao.myapplication.utils;
 
 import android.util.Log;
 
