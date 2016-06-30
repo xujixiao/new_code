@@ -5,7 +5,7 @@ import android.os.Bundle;
 
 import com.test.xujixiao.xjx.R;
 import com.test.xujixiao.xjx.base.fragment.AppFragment;
-import com.test.xujixiao.xjx.utils.TLog;
+import com.test.xujixiao.xjx.util.TLog;
 
 
 /**

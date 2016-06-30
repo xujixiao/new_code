@@ -209,7 +209,6 @@ public abstract class BaseActivity extends FragmentActivity implements View.OnCl
                 }
             });
         }
-
     }
 
     protected boolean isCompatible(int apiLevel) {
@@ -239,6 +238,4 @@ public abstract class BaseActivity extends FragmentActivity implements View.OnCl
         topRightText.setVisibility(View.VISIBLE);
         topRightText.setOnClickListener(listener);
     }
-
-
 }

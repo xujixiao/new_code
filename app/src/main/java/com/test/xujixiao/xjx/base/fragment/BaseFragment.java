@@ -9,7 +9,7 @@ import android.widget.TextView;
 
 import com.test.xujixiao.xjx.R;
 import com.test.xujixiao.xjx.custom_view.LoadingProgress;
-import com.test.xujixiao.xjx.utils.TLog;
+import com.test.xujixiao.xjx.util.TLog;
 
 
 /**

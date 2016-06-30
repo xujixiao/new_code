@@ -5,7 +5,7 @@ import android.content.Context;
 import android.os.Handler;
 
 import com.test.xujixiao.xjx.R;
-import com.test.xujixiao.xjx.utils.CrashUtils;
+import com.test.xujixiao.xjx.util.CrashUtils;
 
 
 public class LoadingProgress extends ProgressDialog {
