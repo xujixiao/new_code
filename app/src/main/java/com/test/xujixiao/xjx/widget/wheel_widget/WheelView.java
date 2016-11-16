@@ -34,11 +34,11 @@ import android.view.ViewGroup.LayoutParams;
 import android.view.animation.Interpolator;
 import android.widget.LinearLayout;
 
+import com.test.xujixiao.xjx.R;
+import com.test.xujixiao.xjx.widget.wheel_adapters.WheelViewAdapter;
+
 import java.util.LinkedList;
 import java.util.List;
-
-import cn.tailorx.R;
-import cn.tailorx.widget.wheel_adapters.WheelViewAdapter;
 
 
 /**
@@ -55,8 +55,8 @@ public class WheelView extends View {
 //	private int[] SHADOWS_COLORS = new int[] { 0xFF111111,
 //			0x00AAAAAA, 0x00AAAAAA };
 	//*/
-	private int[] SHADOWS_COLORS = new int[] { 0xefE9E9E9,
-			0xcfE9E9E9, 0x3fE9E9E9 };
+    private int[] SHADOWS_COLORS = new int[]{0xefE9E9E9,
+            0xcfE9E9E9, 0x3fE9E9E9};
 //    private int[] SHADOWS_COLORS = new int[]{0x3fE9E9E9,
 //            0xf7f7f7, 0xf7f7f7};
 
@@ -660,8 +660,8 @@ public class WheelView extends View {
      * @param canvas the canvas for drawing
      */
     private void drawShadows(Canvas canvas) {
-		/*/ Modified by wulianghuan 2014-11-25
-		int height = (int)(1.5 * getItemHeight());
+        /*/ Modified by wulianghuan 2014-11-25
+        int height = (int)(1.5 * getItemHeight());
 		//*/
         int height = (int) (3 * getItemHeight());
         //*/

@@ -5,6 +5,7 @@ import android.util.AttributeSet;
 import android.widget.ScrollView;
 
 /**
+ * 可以跟踪滑动数据的scrollview
  */
 public class ObservableScrollView extends ScrollView {
 

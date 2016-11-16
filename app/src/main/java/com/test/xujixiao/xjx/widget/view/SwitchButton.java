@@ -13,11 +13,11 @@ import android.view.MotionEvent;
 import android.view.View;
 import android.view.View.OnTouchListener;
 
-import cn.tailorx.R;
+import com.test.xujixiao.xjx.R;
 
 
 /**
- * 仿iphone 开关按钮
+ * 仿iphone 开关按钮,左右滑动额
  *
  * @author sunyoujun
  */

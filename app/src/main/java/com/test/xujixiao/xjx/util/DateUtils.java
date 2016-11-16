@@ -6,6 +6,7 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
+import java.util.Locale;
 
 public class DateUtils {
 
@@ -15,35 +16,32 @@ public class DateUtils {
     public final static String FORMAT_DATE = "yyyy-MM-dd";
 
     /**
-     * 日期格式 hh:mm
-     */
-    public final static String FORMAT_TIME = "HH:mm";
-
-    /**
-     * 日期格式 hh:mm:ss
-     */
-    public static final String FORMAT_TIME_ALL = "HH:mm:ss";
-
-    /**
      * 日期格式 yyyy-MM-dd hh:mm
      */
     public final static String FORMAT_DATE_TIME = "yyyy-MM-dd HH:mm";
+    public final static String FORMAT_DATE_TIME2 = "yyyy-MM-dd HH:mm:ss";
 
     /**
      * 日期格式 MM月dd日 hh:mm
      */
     public final static String FORMAT_MONTH_DAY_TIME = "MM月dd日 HH:mm";
 
-    /**
-     * 日期格式 yyyy-MM-dd hh:mm:ss
-     */
-    public final static String FORMAT_DATE_TIME_ALL = "yyyy-MM-dd HH:mm:ss";
-    private static SimpleDateFormat sdf = new SimpleDateFormat();
+    private static SimpleDateFormat sdf;
+
+    static {
+        sdf = new SimpleDateFormat();
+    }
+
     private static final int YEAR = 365 * 24 * 60 * 60;// 年
     private static final int MONTH = 30 * 24 * 60 * 60;// 月
     private static final int DAY = 24 * 60 * 60;// 天
     private static final int HOUR = 60 * 60;// 小时
     private static final int MINUTE = 60;// 分钟
+
+    public DateUtils() {
+        mSimpleDateFormat = new SimpleDateFormat(
+                "yyyy-MM-dd HH:mm:ss");
+    }
 
     /**
      * 根据时间戳获取描述性时间，如3分钟前，1天前
@@ -54,7 +52,7 @@ public class DateUtils {
     public static String getDescriptionTimeFromTimestamp(long timestamp) {
         long currentTime = System.currentTimeMillis();
         long timeGap = (currentTime - timestamp) / 1000;// 与现在时间相差秒数
-        String timeStr = null;
+        String timeStr;
         if (timeGap > YEAR) {
             timeStr = timeGap / YEAR + "年前";
         } else if (timeGap > MONTH) {
@@ -145,6 +143,26 @@ public class DateUtils {
         return "";
     }
 
+    public static String formatString(long time) {
+        try {
+            Date date = new Date();
+            date.setTime(time);
+            return new SimpleDateFormat("yyyy年MM月dd日 HH:mm", Locale.CHINA).format(date);
+        } catch (Exception e) {
+        }
+        return "";
+    }
+
+    public static String formatString2(long time) {
+        try {
+            Calendar calendar = Calendar.getInstance();
+            calendar.setTimeInMillis(time);
+            return (String) DateFormat.format("MM月dd日", calendar);
+        } catch (Exception e) {
+        }
+        return "";
+    }
+
     /**
      * 获取当前日期的指定格式的字符串
      *
@@ -226,14 +244,14 @@ public class DateUtils {
         long ss = tempTime % 60;
 
         if (house > 0) {
-            buffer.append(house + "小时");
+            buffer.append(house).append("小时");
         }
 
         if (house > 0 || min > 0) {
-            buffer.append(((min < 10 && house > 0) ? "0" + min : min) + "分");
+            buffer.append((min < 10 && house > 0) ? "0" + min : min).append("分");
         }
 
-        buffer.append((ss < 10 ? "0" + ss : ss) + "秒");
+        buffer.append(ss < 10 ? "0" + ss : ss).append("秒");
 
         return buffer.toString();
     }
@@ -260,7 +278,24 @@ public class DateUtils {
 
         long ss = tempTime % 60;
 
-        stringBuffer.append(day + "天" + (house < 10 ? "0" + house : house) + "小时" + (min < 10 ? "0" + min : min) + "分" + (ss < 10 ? "0" + ss : ss) + "秒");
+        stringBuffer.append(day).append("天").append(house < 10 ? "0" + house : house).append("小时").append(min < 10 ? "0" + min : min).append("分").append(ss < 10 ? "0" + ss : ss).append("秒");
+        return stringBuffer.toString();
+    }
+
+    public static String formatTimeSeconds(long time) {
+        long tempTime = time;
+        StringBuffer stringBuffer = new StringBuffer();
+
+        long tempMins = tempTime / 60;// 总分钟
+
+        long tempHouse = tempMins / 60;
+
+
+        long min = tempMins % 60;
+
+        long ss = tempTime % 60;
+
+        stringBuffer.append(tempMins < 10 ? "0" + tempMins : tempMins).append("分").append(ss < 10 ? "0" + ss : ss).append("秒");
         return stringBuffer.toString();
     }
 
@@ -277,22 +312,42 @@ public class DateUtils {
 
         calendar.add(calendarType, next);
         Date date = calendar.getTime();
-        return date_Formater_1.format(date);
+        return mSimpleDateFormat.format(date);
 
     }
 
-    public SimpleDateFormat date_Formater_1 = new SimpleDateFormat(
-            "yyyy-MM-dd HH:mm:ss");
+    /**
+     * 获取当前日期的指定格式的字符串
+     *
+     * @param format 指定的日期时间格式，若为null或""则使用指定的格式"yyyy-MM-dd HH:MM"
+     * @return
+     */
+    public static String getCurrentDate(String format) {
+        return getDate(format, new Date());
+    }
 
+    public static String getDate(String format, long time) {
+        format = (format == null || format.trim().equals("")) ? "yyyy-MM-dd HH:mm" : format;
+        SimpleDateFormat simpleDateFormat = new SimpleDateFormat(format);
+        return simpleDateFormat.format(time);
+    }
 
-    public SimpleDateFormat date_Formater_2 = new SimpleDateFormat("yyyy-MM-dd");
+    public static String getDate(String format, Date date) {
+        format = (format == null || format.trim().equals("")) ? "yyyy-MM-dd HH:mm" : format;
+        SimpleDateFormat simpleDateFormat = new SimpleDateFormat(format);
+        return simpleDateFormat.format(date);
+    }
+
+    public SimpleDateFormat mSimpleDateFormat;
+
 
     public static int comparaDate(String DATE1, String DATE2) {
 
-        SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd");
+        SimpleDateFormat simpleDateFormat;
+        simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd");
         try {
-            Date dt1 = df.parse(DATE1);
-            Date dt2 = df.parse(DATE2);
+            Date dt1 = simpleDateFormat.parse(DATE1);
+            Date dt2 = simpleDateFormat.parse(DATE2);
             if (dt1.getTime() > dt2.getTime()) {
                 return 1;
             } else if (dt1.getTime() < dt2.getTime()) {

@@ -8,11 +8,10 @@ import android.text.TextWatcher;
 import android.util.AttributeSet;
 import android.widget.EditText;
 
-import cn.tailorx.utils.Tools;
+import com.blankj.utilcode.utils.ToastUtils;
 
 /**
  * Created by User on 2016/10/12.
- *
  */
 public class ContainsEmojiEditText extends EditText {
     //输入表情前的光标位置
@@ -64,7 +63,7 @@ public class ContainsEmojiEditText extends EditText {
                         CharSequence input = s.subSequence(cursorPos, cursorPos + count);
                         if (containsEmoji(input.toString())) {
                             resetText = true;
-                            Tools.toast("不支持输入Emoji表情符号");
+                            ToastUtils.showLongToast(getContext(), "不支持输入Emoji表情符号");
                             // 是表情符号就将文本还原为输入表情符号之前的内容
                             setText(inputAfterText);
                             CharSequence text = getText();

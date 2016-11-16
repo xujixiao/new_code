@@ -1,15 +1,14 @@
 package com.test.xujixiao.xjx.widget;
 
 import android.content.Context;
-import android.graphics.drawable.AnimationDrawable;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import cn.tailorx.R;
-import cn.tailorx.protocol.ViewStatusProtocol;
+import com.test.xujixiao.xjx.R;
+import com.test.xujixiao.xjx.protocol.ViewStatusProtocol;
 
 
 public class LoadDataView extends FrameLayout {
@@ -35,7 +34,7 @@ public class LoadDataView extends FrameLayout {
      */
     private final View netErrorView;
     private final LayoutInflater inflater;
-    private final ImageView loadingImg;
+    private final ImageView loadingImg = null;
     //    private final Animation mImageViewAnimation;
     private volatile boolean isFirstLoad = true;
     private TextView noDataTextView;
@@ -52,10 +51,14 @@ public class LoadDataView extends FrameLayout {
         errorView = inflater.inflate(R.layout.base_error_unusual_layout, null);
         noDataView = inflater.inflate(R.layout.base_no_data_layout1, null);
         loadingView = inflater.inflate(R.layout.base_loading_data_layout, null);
-        loadingImg = (ImageView) loadingView.findViewById(R.id.loading_img);
-        loadingImg.setImageResource(R.drawable.frame);
-        AnimationDrawable animationDrawable = (AnimationDrawable) loadingImg.getDrawable();
-        animationDrawable.start();
+
+//        执行帧动画
+//        loadingImg = (ImageView) loadingView.findViewById(R.id.loading_img);
+//        loadingImg.setImageResource(R.drawable.frame);
+//        AnimationDrawable animationDrawable = (AnimationDrawable) loadingImg.getDrawable();
+//        animationDrawable.start();
+
+/*也是执行动画的*/
 //        mImageViewAnimation = AnimationUtils.loadAnimation(context, R.anim.rote);
 //        mImageViewAnimation.setInterpolator(new LinearInterpolator());
 //        mImageViewAnimation.setDuration(2000);
@@ -82,11 +85,11 @@ public class LoadDataView extends FrameLayout {
             loadingView.setVisibility(View.GONE);
         }
         if (null != noDataView) {
-            noDataTextView = (TextView) noDataView.findViewById(R.id.data_loading_textview);
+//            noDataTextView = (TextView) noDataView.findViewById(R.id.data_loading_textview);
 //			likeImageView = (ImageView) noDataView.findViewById(R.id.like);
 
             addView(noDataView);
-            noDataView.setVisibility(View.GONE);
+//            noDataView.setVisibility(View.GONE);
         }
 
 

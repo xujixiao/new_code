@@ -15,7 +15,7 @@ import android.graphics.drawable.NinePatchDrawable;
 import android.util.AttributeSet;
 import android.widget.ImageView;
 
-import cn.tailorx.R;
+import com.test.xujixiao.xjx.R;
 
 
 /**
@@ -52,6 +52,7 @@ public class RoundImageView extends ImageView {
     }
 
     private void setCustomAttributes(AttributeSet attrs) {
+        /*根据资源属性获取对应值*/
         TypedArray a = mContext.obtainStyledAttributes(attrs, R.styleable.roundedimageview);
         mBorderThickness = a.getDimensionPixelSize(R.styleable.roundedimageview_border_thickness, 0);
         mBorderOutsideColor = a.getColor(R.styleable.roundedimageview_border_outside_color, defaultColor);
@@ -74,6 +75,7 @@ public class RoundImageView extends ImageView {
         /*如果是.9图片不处理*/
         if (drawable.getClass() == NinePatchDrawable.class)
             return;
+
         Bitmap b = ((BitmapDrawable) drawable).getBitmap();
         Bitmap bitmap = b.copy(Config.ARGB_8888, true);
         if (defaultWidth == 0) {

@@ -6,7 +6,10 @@ buildscript {
     }
     dependencies {
         classpath 'com.android.tools.build:gradle:2.2.1'
-
+        /*apt插件需要，butterknife就需要的*/
+        classpath 'com.neenbedankt.gradle.plugins:android-apt:1.8'
+        classpath 'com.jfrog.bintray.gradle:gradle-bintray-plugin:1.0'
+        classpath 'com.github.dcendents:android-maven-gradle-plugin:1.4.1'
         // NOTE: Do not place your application dependencies here; they belong
         // in the individual module build.gradle files
     }
@@ -14,6 +17,10 @@ buildscript {
 
 allprojects {
     repositories {
+        maven { url "http://repo1.maven.org/maven2/com/alibaba/fastjson/" }
+        maven { url "http://nexus.dev.utouu.com/content/repositories/releases" }
+        maven { url "http://dl.bintray.com/populov/maven" }
+        mavenCentral()
         jcenter()
     }
 }

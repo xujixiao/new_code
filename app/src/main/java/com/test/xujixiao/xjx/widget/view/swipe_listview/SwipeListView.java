@@ -30,9 +30,10 @@ import android.view.ViewConfiguration;
 import android.widget.ListAdapter;
 import android.widget.ListView;
 
+import com.test.xujixiao.xjx.R;
+
 import java.util.List;
 
-import cn.tailorx.R;
 
 /**
  * ListView subclass that provides the swipe functionality

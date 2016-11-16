@@ -7,6 +7,7 @@ import android.view.MotionEvent;
 
 /**
  * Created by Administrator on 2016/10/23.
+ * 不可左右滑动的viewpage
  */
 
 public class NoScrollViewPager extends ViewPager {

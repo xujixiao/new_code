@@ -6,18 +6,19 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.TextView;
 
+import com.blankj.utilcode.utils.ToastUtils;
+import com.test.xujixiao.xjx.R;
+import com.test.xujixiao.xjx.protocol.Area;
+import com.test.xujixiao.xjx.protocol.CountyProtocol;
+import com.test.xujixiao.xjx.protocol.ProvinceProtocol;
+import com.test.xujixiao.xjx.protocol.TownProtocol;
+import com.test.xujixiao.xjx.widget.wheel_adapters.ArrayWheelAdapter;
+import com.test.xujixiao.xjx.widget.wheel_widget.OnWheelScrollListener;
+import com.test.xujixiao.xjx.widget.wheel_widget.WheelView;
+
 import java.util.ArrayList;
 import java.util.List;
 
-import cn.tailorx.R;
-import cn.tailorx.protocol.Area;
-import cn.tailorx.protocol.CountyProtocol;
-import cn.tailorx.protocol.ProvinceProtocol;
-import cn.tailorx.protocol.TownProtocol;
-import cn.tailorx.utils.Tools;
-import cn.tailorx.widget.wheel_adapters.ArrayWheelAdapter;
-import cn.tailorx.widget.wheel_widget.OnWheelScrollListener;
-import cn.tailorx.widget.wheel_widget.WheelView;
 
 /**
  * Created by User on 2016/8/17.
@@ -139,7 +140,7 @@ public class WheelDialog extends Dialog {
                     } else {
                         countyName = "";
                         countyCode = "";
-                        Tools.toast("请选择区县!");
+                        ToastUtils.showLongToast(getContext(), "请选择区县!");
                         return;
                     }
 

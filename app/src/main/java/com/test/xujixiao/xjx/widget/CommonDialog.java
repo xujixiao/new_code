@@ -14,9 +14,7 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.balysv.materialripple.MaterialRippleLayout;
-
-import cn.tailorx.R;
-
+import com.test.xujixiao.xjx.R;
 
 /**
  * 通用dialog

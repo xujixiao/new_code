@@ -4,9 +4,11 @@ import android.content.Context;
 import android.util.AttributeSet;
 import android.view.View;
 
+import com.test.xujixiao.xjx.widget.view.swipe_listview.SwipeListView;
+
 /**
  */
-public class SwipeScrollListView extends cn.tailorx.widget.view.swipe_listview.SwipeListView {
+public class SwipeScrollListView extends SwipeListView {
     public SwipeScrollListView(Context context, int swipeBackView, int swipeFrontView) {
         super(context, swipeBackView, swipeFrontView);
     }

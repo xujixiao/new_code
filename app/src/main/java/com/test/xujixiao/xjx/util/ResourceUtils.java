@@ -2,6 +2,10 @@ package com.test.xujixiao.xjx.util;
 
 import android.content.Context;
 
+/**
+ * 资源工具
+ */
+
 public class ResourceUtils {
 
 	public static int getLayoutId(Context paramContext, String paramString) {
@@ -24,6 +28,14 @@ public class ResourceUtils {
 		if (null != paramContext){
 			return paramContext.getResources().getIdentifier(paramString,
 					"drawable", paramContext.getPackageName());
+		}
+		return 0;
+	}
+
+	public static int getMipmapId(Context paramContext, String paramString) {
+		if (null != paramContext){
+			return paramContext.getResources().getIdentifier(paramString,
+					"mipmap", paramContext.getPackageName());
 		}
 		return 0;
 	}

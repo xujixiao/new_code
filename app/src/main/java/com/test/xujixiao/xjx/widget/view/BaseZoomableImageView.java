@@ -40,7 +40,8 @@ import android.view.View;
 import android.view.animation.Animation;
 import android.view.animation.TranslateAnimation;
 
-import cn.tailorx.utils.SampleSizeUtil;
+import com.test.xujixiao.xjx.util.SampleSizeUtil;
+
 
 public abstract class BaseZoomableImageView extends View {
     // Statics

@@ -7,7 +7,8 @@ import android.graphics.RectF;
 import android.util.AttributeSet;
 import android.widget.ImageView;
 
-import cn.tailorx.R;
+import com.test.xujixiao.xjx.R;
+
 
 /**
  * 证件上传空间自定义

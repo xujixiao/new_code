@@ -18,7 +18,7 @@ package com.test.xujixiao.xjx.widget.wheel_adapters;
 
 import android.content.Context;
 
-import cn.tailorx.widget.wheel_widget.WheelAdapter;
+import com.test.xujixiao.xjx.widget.wheel_widget.WheelAdapter;
 
 
 /**

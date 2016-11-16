@@ -3,19 +3,17 @@ package com.test.xujixiao.xjx.widget;
 import android.app.Dialog;
 import android.content.Context;
 import android.os.Handler;
-import android.view.LayoutInflater;
-import android.view.View;
 import android.view.animation.AnimationUtils;
 import android.widget.ImageView;
 
-import cn.tailorx.R;
-import cn.tailorx.utils.CrashUtils;
+import com.test.xujixiao.xjx.R;
+import com.test.xujixiao.xjx.util.CrashUtils;
 
 
 public class LoadingProgress extends Dialog {
 
     private static final int TIME_OUT = 10000;
-    private final ImageView imageView;
+    private final ImageView imageView = null;
 
     private Handler mainHandler = new Handler();
 
@@ -34,11 +32,11 @@ public class LoadingProgress extends Dialog {
     };
 
     public LoadingProgress(Context context) {
-        super(context, R.style.DialogTheme1);
-        View view = LayoutInflater.from(context).inflate(R.layout.loading_dialog, null);
-        setContentView(view);
-        imageView = (ImageView) view.findViewById(R.id.img);
-        imageView.startAnimation(AnimationUtils.loadAnimation(context, R.anim.rotate));
+        super(context, R.style.dialogTheme);
+//        View view = LayoutInflater.from(context).inflate(R.layout.loading_dialog, null);
+//        setContentView(view);
+//        imageView = (ImageView) view.findViewById(R.id.img);
+//        imageView.startAnimation(AnimationUtils.loadAnimation(context, R.anim.rotate));
         setCancelable(false);
         setCanceledOnTouchOutside(false);
     }
