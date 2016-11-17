@@ -30,6 +30,16 @@ public class SingleAdapterTestActivity extends BaseActivity implements TAdapterD
     }
 
     @Override
+    public int getViewLayoutId() {
+        return 0;
+    }
+
+    @Override
+    public int getContentId() {
+        return 0;
+    }
+
+    @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.layout_adapter_test_activity);

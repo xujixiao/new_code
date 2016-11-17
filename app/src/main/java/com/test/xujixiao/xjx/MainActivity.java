@@ -1,19 +1,18 @@
 package com.test.xujixiao.xjx;
 
-import android.os.Bundle;
 import android.view.View;
 
 import com.test.xujixiao.xjx.base.BaseActivity;
 import com.test.xujixiao.xjx.common.adapter.Test.SingleAdapterTestActivity;
+import com.test.xujixiao.xjx.fragment.TestFragment;
 
 
 public class MainActivity extends BaseActivity {
 
+
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
-        init();
+    public int getViewLayoutId() {
+        return R.layout.activity_main;
     }
 
     @Override
@@ -28,7 +27,12 @@ public class MainActivity extends BaseActivity {
 
     @Override
     protected void initData() {
+        addFragment(TestFragment.newInstance());
+    }
 
+    @Override
+    public int getContentId() {
+        return R.id.content_frame_layout;
     }
 
     @Override

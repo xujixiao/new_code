@@ -24,7 +24,6 @@ public abstract class AppActivity extends NewBaseActivity {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(getContentViewId());
-        getTopLayoutViewId();
         if (null != getIntent()) {
             handleIntent(getIntent());
         }

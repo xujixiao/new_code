@@ -8,13 +8,20 @@ import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
 import android.support.v4.app.FragmentActivity;
+import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentTransaction;
 import android.view.KeyEvent;
 import android.view.View;
 import android.view.inputmethod.InputMethodManager;
-import android.widget.LinearLayout;
-import android.widget.TextView;
 
 import com.test.xujixiao.xjx.R;
+import com.test.xujixiao.xjx.base.fragment.BaseFragment;
+import com.test.xujixiao.xjx.constants.ChangeAnimType;
+
+import org.simple.eventbus.EventBus;
+
+import butterknife.ButterKnife;
+import butterknife.Unbinder;
 
 
 /**
@@ -22,20 +29,19 @@ import com.test.xujixiao.xjx.R;
  */
 public abstract class BaseActivity extends FragmentActivity implements View.OnClickListener {
     /*顶部的控件*/
-    protected TextView topLeftText, topRightText, topCenterText, topLeftHint;
-    protected LinearLayout topLayoutBack;
-
-
     private boolean destroyed = false;
     private static Handler handler;
-
     private boolean isVisible;
+    private Unbinder mUnbinder;
     private AlertDialog loginInvalidDialog;
     private DialogInterface.OnDismissListener listener;
-
+    private FragmentManager mFragmentManager;
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        setContentView(getViewLayoutId());
+        mUnbinder = ButterKnife.bind(this);
+        EventBus.getDefault().register(this);
         listener = new DialogInterface.OnDismissListener() {
             @Override
             public void onDismiss(DialogInterface dialog) {
@@ -45,12 +51,10 @@ public abstract class BaseActivity extends FragmentActivity implements View.OnCl
         isVisible = true;
     }
 
+    public abstract int getViewLayoutId();
+
     protected void progressDismissListener() {
 
-    }
-
-    protected String removeString(String value) {
-        return value.replace("\r\n", "");
     }
 
     protected void init() {
@@ -73,6 +77,10 @@ public abstract class BaseActivity extends FragmentActivity implements View.OnCl
     @Override
     protected void onDestroy() {
         destroyed = true;
+        if (mUnbinder != null) {
+            mUnbinder.unbind();
+        }
+        EventBus.getDefault().unregister(this);
         super.onDestroy();
     }
 
@@ -86,34 +94,6 @@ public abstract class BaseActivity extends FragmentActivity implements View.OnCl
         super.onPause();
     }
 
-    protected void getTopLayoutViewId() {
-        topCenterText = findView(R.id.top_title_textview);
-        topLeftText = findView(R.id.top_left_textivew);
-        topLayoutBack = findView(R.id.top_layout_back);
-        if (topLayoutBack != null) {
-            topLayoutBack.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    showKeyboard(false);
-                    finish();
-                }
-            });
-        }
-    }
-
-    public void setTitle(CharSequence title) {
-        getTopLayoutViewId();
-        if (topCenterText != null) {
-            topCenterText.setText(title);
-        }
-    }
-
-    public void setTitle(int titleResId) {
-        getTopLayoutViewId();
-        if (topCenterText != null) {
-            topCenterText.setText(titleResId);
-        }
-    }
 
     protected final Handler getHandler() {
         if (handler == null) {
@@ -195,22 +175,6 @@ public abstract class BaseActivity extends FragmentActivity implements View.OnCl
         return false;
     }
 
-
-    /*如果调用了settitle不用再调用此方法*/
-    protected void findViewId() {
-        topCenterText = findView(R.id.top_title_textview);
-        topLeftText = findView(R.id.top_left_textivew);
-        topLayoutBack = findView(R.id.top_layout_back);
-        if (topLayoutBack != null) {
-            topLayoutBack.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    finish();
-                }
-            });
-        }
-    }
-
     protected boolean isCompatible(int apiLevel) {
         return Build.VERSION.SDK_INT >= apiLevel;
     }
@@ -220,22 +184,54 @@ public abstract class BaseActivity extends FragmentActivity implements View.OnCl
     }
 
 
-    protected void setHintText(String text) {
-        if (topLeftHint != null) {
-            topLeftHint.setText(text);
-        }
-    }
-
+    public abstract int getContentId();
 
     /**
-     * 设置右侧功能
+     * 添加fragment不执行动画
      *
-     * @param text
-     * @param listener
+     * @param baseFragment
      */
-    protected void setRightText(String text, View.OnClickListener listener) {
-        topRightText.setText(text);
-        topRightText.setVisibility(View.VISIBLE);
-        topRightText.setOnClickListener(listener);
+    public void addFragment(BaseFragment baseFragment) {
+        addFragment(baseFragment, -100);
+    }
+
+    /**
+     * 添加fragment并指定的动画类型
+     *
+     * @param baseFragment
+     * @param animType
+     */
+    public void addFragment(BaseFragment baseFragment, int animType) {
+        if (mFragmentManager == null) {
+            mFragmentManager = getSupportFragmentManager();
+        }
+        FragmentTransaction transaction = mFragmentManager.beginTransaction();
+        setAnimation(animType, transaction);
+        transaction.add(getContentId(), baseFragment)
+                .addToBackStack(baseFragment.getClass().getSimpleName())
+                .commitAllowingStateLoss();
+    }
+
+    /**
+     * 执行fragment加载的动画
+     *
+     * @param animType
+     * @param transaction
+     */
+    private void setAnimation(int animType, FragmentTransaction transaction) {
+        if (animType == ChangeAnimType.LEFT_RIGHT) {
+            /*左右方向*/
+            transaction.setCustomAnimations(R.anim.in_from_right, R.anim.out_from_left, R.anim.in_from_left,
+                    R.anim.out_from_right);
+        } else if (animType == ChangeAnimType.SCALE) {
+            /*缩放动画*/
+            transaction.setCustomAnimations(R.anim.scale_to_one, R.anim.scale_to_zero);
+        } else if (animType == ChangeAnimType.TOP_TO_LOW) {
+            /*从顶部向下*/
+            transaction.setCustomAnimations(R.anim.slide_in_from_top, R.anim.slide_out_to_top, R.anim.slide_in, R.anim.slide_out_to_top);
+        } else if (animType == ChangeAnimType.LOW_TO_TOP_) {
+            /*从底部向上*/
+            transaction.setCustomAnimations(R.anim.slide_in_from_bottom, R.anim.slide_out_to_bottom, R.anim.slide_in, R.anim.slide_out_to_bottom);
+        }
     }
 }
