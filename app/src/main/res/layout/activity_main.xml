@@ -5,20 +5,6 @@
               android:orientation="vertical"
               tools:context=".MainActivity">
 
-    <TextView
-        android:id="@+id/single_adapter_test"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="single_adapter_test"/>
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:ellipsize="end"
-        android:lines="1"
-        android:maxEms="9"
-        android:text="徐继晓徐继晓徐继晓徐继晓"/>
-
     <FrameLayout
         android:id="@+id/content_frame_layout"
         android:layout_width="match_parent"

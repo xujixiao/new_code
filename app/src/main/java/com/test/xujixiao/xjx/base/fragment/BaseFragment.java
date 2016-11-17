@@ -31,7 +31,7 @@ public abstract class BaseFragment extends TFragment {
     protected LinearLayout topLayoutBack;
     protected LoadingProgress loadingProgress;
     private AlertDialog loginInvalidDialog;
-    private BaseActivity mBaseActivity;
+    protected BaseActivity mBaseActivity;
     private View mView;
     private Unbinder mUnbinder;
 
@@ -114,13 +114,17 @@ public abstract class BaseFragment extends TFragment {
     @Override
     public void onActivityCreated(Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
-        EventBus.getDefault().register(this);
         if (getActivity() != null) {
+            EventBus.getDefault().register(this);
             mBaseActivity = (BaseActivity) getActivity();
             loadingProgress = new LoadingProgress(getActivity());
             loadingProgress.setCancelable(true);
+            initData();
         }
     }
+
+
+    public abstract void initData();
 
 
     @Override

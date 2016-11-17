@@ -10,7 +10,6 @@ import android.os.Handler;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
-import android.view.KeyEvent;
 import android.view.View;
 import android.view.inputmethod.InputMethodManager;
 
@@ -18,6 +17,7 @@ import com.apkfuns.logutils.LogUtils;
 import com.test.xujixiao.xjx.R;
 import com.test.xujixiao.xjx.base.fragment.BaseFragment;
 import com.test.xujixiao.xjx.constants.ChangeAnimType;
+import com.test.xujixiao.xjx.widget.LoadingProgress;
 
 import org.simple.eventbus.EventBus;
 
@@ -35,6 +35,7 @@ public abstract class BaseActivity extends FragmentActivity implements View.OnCl
     private boolean isVisible;
     private Unbinder mUnbinder;
     private AlertDialog loginInvalidDialog;
+    private LoadingProgress mLoadingProgress;
     private DialogInterface.OnDismissListener listener;
     private FragmentManager mFragmentManager;
 
@@ -43,6 +44,7 @@ public abstract class BaseActivity extends FragmentActivity implements View.OnCl
         setContentView(getViewLayoutId());
         mUnbinder = ButterKnife.bind(this);
         EventBus.getDefault().register(this);
+        mFragmentManager = getSupportFragmentManager();
         listener = new DialogInterface.OnDismissListener() {
             @Override
             public void onDismiss(DialogInterface dialog) {
@@ -61,20 +63,12 @@ public abstract class BaseActivity extends FragmentActivity implements View.OnCl
 
     private void init() {
         parseIntent();
-        findView();
         initData();
     }
-
-    protected abstract void findView();
 
     protected abstract void parseIntent();
 
     protected abstract void initData();
-
-    @Override
-    public void onBackPressed() {
-        super.onBackPressed();
-    }
 
     @Override
     protected void onDestroy() {
@@ -162,20 +156,6 @@ public abstract class BaseActivity extends FragmentActivity implements View.OnCl
         return super.isDestroyed();
     }
 
-
-    public boolean onKeyDown(int keyCode, KeyEvent event) {
-        switch (keyCode) {
-            case KeyEvent.KEYCODE_MENU:
-                return onMenuKeyDown();
-
-            default:
-                return super.onKeyDown(keyCode, event);
-        }
-    }
-
-    protected boolean onMenuKeyDown() {
-        return false;
-    }
 
     protected boolean isCompatible(int apiLevel) {
         return Build.VERSION.SDK_INT >= apiLevel;
@@ -270,5 +250,30 @@ public abstract class BaseActivity extends FragmentActivity implements View.OnCl
             LogUtils.d(e.toString());
         }
         return fragment;
+    }
+
+    @Override
+    public void onClick(View v) {
+
+    }
+
+    @Override
+    public void onBackPressed() {
+        removeFragment();
+    }
+
+    public void removeFragment() {
+        if (mLoadingProgress != null && mLoadingProgress.isShowing()) {
+            mLoadingProgress.dismiss();
+        }
+        if (mFragmentManager == null) {
+            return;
+        }
+        LogUtils.d("回退fragment count " + mFragmentManager.getBackStackEntryCount());
+        if (mFragmentManager.getBackStackEntryCount() > 1) {
+            mFragmentManager.popBackStack();
+        } else {
+            finish();
+        }
     }
 }

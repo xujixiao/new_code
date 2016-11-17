@@ -1,13 +1,20 @@
 package com.test.xujixiao.xjx.fragment;
 
 import android.os.Bundle;
-import android.support.annotation.Nullable;
-import android.view.LayoutInflater;
+import android.support.v7.widget.LinearLayoutManager;
 import android.view.View;
-import android.view.ViewGroup;
 
+import com.jcodecraeer.xrecyclerview.XRecyclerView;
 import com.test.xujixiao.xjx.R;
+import com.test.xujixiao.xjx.adapter.MainAdapter;
+import com.test.xujixiao.xjx.base.BaseRecyclerAdapter;
 import com.test.xujixiao.xjx.base.fragment.BaseFragment;
+import com.test.xujixiao.xjx.common.adapter.Test.SingleAdapterTestActivity;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import butterknife.BindView;
 
 /**
  * Created by xujixiao on 2016/11/17.10:04
@@ -15,6 +22,11 @@ import com.test.xujixiao.xjx.base.fragment.BaseFragment;
  */
 
 public class TestFragment extends BaseFragment {
+    @BindView(R.id.xrecyclerview)
+    XRecyclerView mXrecyclerview;
+    private List<String> mList = new ArrayList<>();
+    private MainAdapter mMainAdapter;
+
     public static TestFragment newInstance() {
         Bundle args = new Bundle();
         TestFragment fragment = new TestFragment();
@@ -22,16 +34,32 @@ public class TestFragment extends BaseFragment {
         return fragment;
     }
 
-    @Nullable
     @Override
-    public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        return super.onCreateView(inflater, container, savedInstanceState);
+    public void initData() {
+        mList.add("网易云信封装adapter的应用");
+        mList.add("xujixiao");
+        mList.add("xujixiao");
+        mList.add("xujixiao");
+        mList.add("xujixiao");
+        mMainAdapter = new MainAdapter(mBaseActivity, mList);
+        mXrecyclerview.setLayoutManager(new LinearLayoutManager(mBaseActivity));
+        mXrecyclerview.setLoadingMoreEnabled(false);
+        mXrecyclerview.setPullRefreshEnabled(false);
+        mXrecyclerview.setAdapter(mMainAdapter);
+        mMainAdapter.setOnItemClickListener(new BaseRecyclerAdapter.OnItemClickListener() {
+            @Override
+            public void onItemClick(View itemView, int pos) {
+                switch (pos) {
+                    case 0:
+                        SingleAdapterTestActivity.start(mBaseActivity);
+                        break;
+                    case 1:
+                        SingleAdapterTestActivity.start(mBaseActivity);
+                        break;
 
-    }
-
-    @Override
-    public void onActivityCreated(Bundle savedInstanceState) {
-        super.onActivityCreated(savedInstanceState);
+                }
+            }
+        });
 
     }
 

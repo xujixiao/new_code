@@ -11,6 +11,7 @@ import android.text.style.ForegroundColorSpan;
 import android.text.style.StyleSpan;
 import android.widget.TextView;
 
+import com.blankj.utilcode.utils.ToastUtils;
 import com.test.xujixiao.xjx.widget.CommonDialog;
 
 import org.json.JSONException;
@@ -202,5 +203,9 @@ public class Tools {
                 mDialog.dismiss();
             }
         }).create();
+    }
+
+    public static void toast(String msg) {
+        ToastUtils.showShortToast(NimUIKit.getContext(), msg);
     }
 }

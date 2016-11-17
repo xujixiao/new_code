@@ -13,13 +13,16 @@ import com.test.xujixiao.xjx.common.adapter.base.TViewHolder;
 import java.util.ArrayList;
 import java.util.List;
 
+import butterknife.BindView;
+
 /**
  * Created by xujixiao on 2016/6/20.16:48
  * 邮箱：1107313740@qq.com
  * activity表现了单个viewholder类型的使用方法
  */
 public class SingleAdapterTestActivity extends BaseActivity implements TAdapterDelegate, View.OnClickListener {
-    private ListView mListView;
+    @BindView(R.id.my_listview)
+    ListView mListView;
     private SingleAdapterTest singleAdapterTest;
     private List<Entity> mEntities = new ArrayList<>();
 
@@ -35,12 +38,7 @@ public class SingleAdapterTestActivity extends BaseActivity implements TAdapterD
 
     @Override
     public int getContentId() {
-        return 0;
-    }
-
-    @Override
-    protected void findView() {
-        mListView = findView(R.id.my_listview);
+        return R.id.content_frame_layout;
     }
 
     @Override
@@ -53,9 +51,9 @@ public class SingleAdapterTestActivity extends BaseActivity implements TAdapterD
         singleAdapterTest = new SingleAdapterTest(this, mEntities, this, null);
         mListView.setAdapter(singleAdapterTest);
 
-        mEntities.add(new Entity("xujixiao"));
-        mEntities.add(new Entity("xujixiao"));
-        mEntities.add(new Entity("xujixiao"));
+        mEntities.add(new Entity("测试一"));
+        mEntities.add(new Entity("测试一"));
+        mEntities.add(new Entity("测试一"));
         singleAdapterTest.notifyDataSetChanged();
     }
 
