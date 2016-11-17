@@ -2,31 +2,54 @@ package com.test.xujixiao.xjx.base.fragment;
 
 import android.app.AlertDialog;
 import android.os.Bundle;
+import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.test.xujixiao.xjx.R;
+import com.test.xujixiao.xjx.base.BaseActivity;
 import com.test.xujixiao.xjx.custom_view.LoadingProgress;
 import com.test.xujixiao.xjx.util.TLog;
+
+import org.simple.eventbus.EventBus;
+
+import butterknife.ButterKnife;
+import butterknife.Unbinder;
 
 
 /**
  * Created by xujixiao on 2015/8/20.
  */
-public class BaseFragment extends TFragment {
+public abstract class BaseFragment extends TFragment {
 
     protected TextView topLeftText, topRightText, topCenterText;
     protected TextView topHintText;
     protected LinearLayout topLayoutBack;
     protected LoadingProgress loadingProgress;
     private AlertDialog loginInvalidDialog;
+    private BaseActivity mBaseActivity;
+    private View mView;
+    private Unbinder mUnbinder;
 
-    protected void getTopLayoutViewId(View mainView) {
-        topCenterText = (TextView) mainView.findViewById(R.id.top_title_textview);
-        topLeftText = (TextView) mainView.findViewById(R.id.top_left_textivew);
-        topLayoutBack = (LinearLayout) mainView.findViewById(R.id.top_layout_back);
+    @Nullable
+    @Override
+    public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
+        mView = inflater.inflate(getLayoutId(), container, false);
+        mUnbinder = ButterKnife.bind(this, mView);
+        getTopLayoutViewId();
+        return mView;
+    }
+
+    public abstract int getLayoutId();
+
+    protected void getTopLayoutViewId() {
+        topCenterText = (TextView) mView.findViewById(R.id.top_title_textview);
+        topLeftText = (TextView) mView.findViewById(R.id.top_left_textivew);
+        topLayoutBack = (LinearLayout) mView.findViewById(R.id.top_layout_back);
         if (topLayoutBack != null) {
             topLayoutBack.setOnClickListener(new View.OnClickListener() {
                 @Override
@@ -40,12 +63,15 @@ public class BaseFragment extends TFragment {
                 }
             });
         }
-        topRightText.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                topRightOnClick();
-            }
-        });
+        if (topRightText != null) {
+            topRightText.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    topRightOnClick();
+                }
+            });
+        }
+
     }
 
     protected void topRightOnClick() {
@@ -88,11 +114,22 @@ public class BaseFragment extends TFragment {
     @Override
     public void onActivityCreated(Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
-//        EventBus.getDefault().register(this);
+        EventBus.getDefault().register(this);
         if (getActivity() != null) {
+            mBaseActivity = (BaseActivity) getActivity();
             loadingProgress = new LoadingProgress(getActivity());
             loadingProgress.setCancelable(true);
         }
+    }
+
+
+    @Override
+    public void onDestroyView() {
+        if (mUnbinder != null) {
+            mUnbinder.unbind();
+        }
+        EventBus.getDefault().unregister(this);
+        super.onDestroyView();
     }
 
     public void progressShow() {

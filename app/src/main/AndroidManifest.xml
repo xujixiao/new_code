@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.test.xujixiao.xjx">
+          package="com.test.xujixiao.xjx">
 
     <application
         android:allowBackup="true"
@@ -10,12 +10,12 @@
             android:name="com.test.xujixiao.xjx.MainActivity"
             android:label="@string/app_name">
             <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
+                <action android:name="android.intent.action.MAIN"/>
 
-                <category android:name="android.intent.category.LAUNCHER" />
+                <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </activity>
-        <activity android:name="com.test.xujixiao.xjx.common.adapter.Test.SingleAdapterTestActivity" />
+        <activity android:name="com.test.xujixiao.xjx.common.adapter.Test.SingleAdapterTestActivity"/>
     </application>
 
 </manifest>

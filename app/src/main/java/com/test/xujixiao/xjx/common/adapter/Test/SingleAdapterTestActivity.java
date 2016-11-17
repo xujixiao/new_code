@@ -2,7 +2,6 @@ package com.test.xujixiao.xjx.common.adapter.Test;
 
 import android.content.Context;
 import android.content.Intent;
-import android.os.Bundle;
 import android.view.View;
 import android.widget.ListView;
 
@@ -31,19 +30,12 @@ public class SingleAdapterTestActivity extends BaseActivity implements TAdapterD
 
     @Override
     public int getViewLayoutId() {
-        return 0;
+        return R.layout.layout_adapter_test_activity;
     }
 
     @Override
     public int getContentId() {
         return 0;
-    }
-
-    @Override
-    public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.layout_adapter_test_activity);
-        init();
     }
 
     @Override

@@ -7,7 +7,7 @@ import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.test.xujixiao.xjx.base.activity.NewBaseActivity;
+import com.test.xujixiao.xjx.base.activity.MvpBaseActivity;
 
 
 /**
@@ -15,31 +15,16 @@ import com.test.xujixiao.xjx.base.activity.NewBaseActivity;
  * 邮箱：1107313740@qq.com
  */
 public abstract class AppFragment extends BaseFragment implements View.OnClickListener, View.OnTouchListener {
-    protected NewBaseActivity mActivity;
-
-    protected abstract void initView(View view, Bundle saveInstanceState);
-
-    protected abstract int getLayoutId();
-
-    protected NewBaseActivity getHoldingActivity() {
-        return mActivity;
-    }
+    protected MvpBaseActivity mActivity;
 
     @Override
     public void onAttach(Activity activity) {
         super.onAttach(activity);
-        this.mActivity = (NewBaseActivity) activity;
+        this.mActivity = (MvpBaseActivity) activity;
     }
 
     @Override
     public boolean onTouch(View v, MotionEvent event) {
         return true;
-    }
-
-    @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        View view = inflater.inflate(getLayoutId(), container, false);
-        initView(view, savedInstanceState);
-        return view;
     }
 }

@@ -14,6 +14,7 @@ import android.view.KeyEvent;
 import android.view.View;
 import android.view.inputmethod.InputMethodManager;
 
+import com.apkfuns.logutils.LogUtils;
 import com.test.xujixiao.xjx.R;
 import com.test.xujixiao.xjx.base.fragment.BaseFragment;
 import com.test.xujixiao.xjx.constants.ChangeAnimType;
@@ -49,6 +50,7 @@ public abstract class BaseActivity extends FragmentActivity implements View.OnCl
             }
         };
         isVisible = true;
+        init();
     }
 
     public abstract int getViewLayoutId();
@@ -57,7 +59,7 @@ public abstract class BaseActivity extends FragmentActivity implements View.OnCl
 
     }
 
-    protected void init() {
+    private void init() {
         parseIntent();
         findView();
         initData();
@@ -233,5 +235,40 @@ public abstract class BaseActivity extends FragmentActivity implements View.OnCl
             /*从底部向上*/
             transaction.setCustomAnimations(R.anim.slide_in_from_bottom, R.anim.slide_out_to_bottom, R.anim.slide_in, R.anim.slide_out_to_bottom);
         }
+    }
+
+    /**
+     * 切换布局 默认加入回退
+     *
+     * @param fragment
+     * @param animType
+     * @return
+     */
+    public BaseFragment replaceFragment(BaseFragment fragment, int animType) {
+        return replaceFragment(fragment, animType, true);
+    }
+
+    /**
+     * 切换布局
+     *
+     * @param fragment
+     * @param animType
+     * @param isInPop  是否加入回退堆栈
+     * @return
+     */
+    public BaseFragment replaceFragment(BaseFragment fragment, int animType, boolean isInPop) {
+        FragmentManager fm = getSupportFragmentManager();
+        FragmentTransaction transaction = fm.beginTransaction();
+        setAnimation(animType, transaction);
+        transaction.replace(getContentId(), fragment);
+        if (isInPop) {
+            transaction.addToBackStack(fragment.getClass().getSimpleName());
+        }
+        try {
+            transaction.commitAllowingStateLoss();
+        } catch (Exception e) {
+            LogUtils.d(e.toString());
+        }
+        return fragment;
     }
 }

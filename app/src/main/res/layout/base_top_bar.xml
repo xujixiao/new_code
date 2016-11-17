@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:id="@+id/top_head_layout"
-    android:layout_width="match_parent"
-    android:layout_height="45dp"
-    android:background="@color/white">
+                android:id="@+id/top_head_layout"
+                android:layout_width="match_parent"
+                android:layout_height="45dp"
+                android:background="@color/white">
     <!--通用头部-->
     <LinearLayout
         android:id="@+id/top_layout_back"
@@ -21,7 +21,7 @@
             android:layout_centerVertical="true"
             android:gravity="center_vertical"
             android:textColor="@color/textcolor_999999"
-            android:textSize="@dimen/text_size_21" />
+            android:textSize="@dimen/text_size_21"/>
     </LinearLayout>
 
     <LinearLayout
@@ -39,7 +39,7 @@
             android:maxLength="15"
             android:singleLine="true"
             android:textColor="@color/text_color333333"
-            android:textSize="@dimen/default_top_title_textsize" />
+            android:textSize="@dimen/default_top_title_textsize"/>
 
     </LinearLayout>
 
@@ -65,7 +65,7 @@
                 android:gravity="center_vertical"
                 android:textColor="@color/textcolor_999999"
                 android:textSize="@dimen/text_size_21"
-                android:visibility="gone" />
+                android:visibility="gone"/>
 
         </FrameLayout>
 
@@ -77,5 +77,5 @@
         android:layout_height="0.5dp"
         android:layout_alignParentBottom="true"
         android:layout_marginTop="1dp"
-        android:background="@color/color_bfbfbf" />
+        android:background="@color/color_bfbfbf"/>
 </RelativeLayout>
