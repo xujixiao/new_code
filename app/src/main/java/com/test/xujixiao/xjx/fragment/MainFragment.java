@@ -39,9 +39,6 @@ public class MainFragment extends BaseFragment {
     public void initData() {
         mList.add("网易云信封装adapter的应用");
         mList.add("Realm数据库用法示例");
-        mList.add("xujixiao");
-        mList.add("xujixiao");
-        mList.add("xujixiao");
         mMainAdapter = new MainAdapter(mBaseActivity, mList);
         mXrecyclerview.setLayoutManager(new LinearLayoutManager(mBaseActivity));
         mXrecyclerview.setLoadingMoreEnabled(false);

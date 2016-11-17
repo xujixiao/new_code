@@ -16,6 +16,7 @@ import io.realm.RealmAsyncTask;
 /**
  * Created by xujixiao on 2016/11/17.13:29
  * 邮箱：1107313740@qq.com
+ * https://realm.io/docs/java/latest/#installation   url地址
  */
 
 public class RealmFragment extends BaseFragment {
@@ -29,9 +30,7 @@ public class RealmFragment extends BaseFragment {
     TextView mTvUpdate;
 
     public static RealmFragment newInstance() {
-
         Bundle args = new Bundle();
-
         RealmFragment fragment = new RealmFragment();
         fragment.setArguments(args);
         return fragment;
