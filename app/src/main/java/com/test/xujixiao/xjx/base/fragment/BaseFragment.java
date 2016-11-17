@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
+import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.LinearLayout;
@@ -19,12 +20,13 @@ import org.simple.eventbus.EventBus;
 
 import butterknife.ButterKnife;
 import butterknife.Unbinder;
+import io.realm.Realm;
 
 
 /**
  * Created by xujixiao on 2015/8/20.
  */
-public abstract class BaseFragment extends TFragment {
+public abstract class BaseFragment extends Fragment implements View.OnTouchListener {
 
     protected TextView topLeftText, topRightText, topCenterText;
     protected TextView topHintText;
@@ -34,6 +36,7 @@ public abstract class BaseFragment extends TFragment {
     protected BaseActivity mBaseActivity;
     private View mView;
     private Unbinder mUnbinder;
+    protected Realm mRealm;
 
     @Nullable
     @Override
@@ -55,7 +58,6 @@ public abstract class BaseFragment extends TFragment {
                 @Override
                 public void onClick(View v) {
                     TLog.log("layoutback_____点击");
-                    showKeyboard(false);
                     topLeftBackLayoutClick();
                     if (getActivity() != null) {
                         getActivity().finish();
@@ -72,6 +74,11 @@ public abstract class BaseFragment extends TFragment {
             });
         }
 
+    }
+
+    @Override
+    public boolean onTouch(View v, MotionEvent event) {
+        return false;
     }
 
     protected void topRightOnClick() {
@@ -116,6 +123,7 @@ public abstract class BaseFragment extends TFragment {
         super.onActivityCreated(savedInstanceState);
         if (getActivity() != null) {
             EventBus.getDefault().register(this);
+            mRealm = Realm.getDefaultInstance();
             mBaseActivity = (BaseActivity) getActivity();
             loadingProgress = new LoadingProgress(getActivity());
             loadingProgress.setCancelable(true);
@@ -131,6 +139,9 @@ public abstract class BaseFragment extends TFragment {
     public void onDestroyView() {
         if (mUnbinder != null) {
             mUnbinder.unbind();
+        }
+        if (mRealm != null && !mRealm.isClosed()) {
+            mRealm.close();
         }
         EventBus.getDefault().unregister(this);
         super.onDestroyView();

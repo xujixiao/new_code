@@ -8,11 +8,11 @@ import java.util.List;
 
 /**
  * Created by Administrator on 2015/11/10.
- * 市数据+
+ * 市数据+  xutils数据库的注解方式
  */
 @Table(name = "TownProtocol")
 public class TownProtocol implements Serializable {
-    @Column(name = "code",isId = true)
+    @Column(name = "code", isId = true)
     public String code;
     @Column(name = "level")
     public int level;

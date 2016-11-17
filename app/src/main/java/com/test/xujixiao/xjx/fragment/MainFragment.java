@@ -10,6 +10,7 @@ import com.test.xujixiao.xjx.adapter.MainAdapter;
 import com.test.xujixiao.xjx.base.BaseRecyclerAdapter;
 import com.test.xujixiao.xjx.base.fragment.BaseFragment;
 import com.test.xujixiao.xjx.common.adapter.Test.SingleAdapterTestActivity;
+import com.test.xujixiao.xjx.constants.ChangeAnimType;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -21,15 +22,15 @@ import butterknife.BindView;
  * 邮箱：1107313740@qq.com
  */
 
-public class TestFragment extends BaseFragment {
+public class MainFragment extends BaseFragment {
     @BindView(R.id.xrecyclerview)
     XRecyclerView mXrecyclerview;
     private List<String> mList = new ArrayList<>();
     private MainAdapter mMainAdapter;
 
-    public static TestFragment newInstance() {
+    public static MainFragment newInstance() {
         Bundle args = new Bundle();
-        TestFragment fragment = new TestFragment();
+        MainFragment fragment = new MainFragment();
         fragment.setArguments(args);
         return fragment;
     }
@@ -37,7 +38,7 @@ public class TestFragment extends BaseFragment {
     @Override
     public void initData() {
         mList.add("网易云信封装adapter的应用");
-        mList.add("xujixiao");
+        mList.add("Realm数据库用法示例");
         mList.add("xujixiao");
         mList.add("xujixiao");
         mList.add("xujixiao");
@@ -50,13 +51,12 @@ public class TestFragment extends BaseFragment {
             @Override
             public void onItemClick(View itemView, int pos) {
                 switch (pos) {
-                    case 0:
-                        SingleAdapterTestActivity.start(mBaseActivity);
-                        break;
                     case 1:
                         SingleAdapterTestActivity.start(mBaseActivity);
                         break;
-
+                    case 2:
+                        mBaseActivity.addFragment(RealmFragment.newInstance(), ChangeAnimType.LEFT_RIGHT);
+                        break;
                 }
             }
         });

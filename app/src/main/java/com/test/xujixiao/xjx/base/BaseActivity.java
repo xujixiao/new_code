@@ -23,6 +23,7 @@ import org.simple.eventbus.EventBus;
 
 import butterknife.ButterKnife;
 import butterknife.Unbinder;
+import io.realm.Realm;
 
 
 /**
@@ -38,12 +39,14 @@ public abstract class BaseActivity extends FragmentActivity implements View.OnCl
     private LoadingProgress mLoadingProgress;
     private DialogInterface.OnDismissListener listener;
     private FragmentManager mFragmentManager;
+    private Realm mRealm;
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(getViewLayoutId());
         mUnbinder = ButterKnife.bind(this);
         EventBus.getDefault().register(this);
+        mRealm = Realm.getDefaultInstance();
         mFragmentManager = getSupportFragmentManager();
         listener = new DialogInterface.OnDismissListener() {
             @Override
@@ -77,6 +80,9 @@ public abstract class BaseActivity extends FragmentActivity implements View.OnCl
             mUnbinder.unbind();
         }
         EventBus.getDefault().unregister(this);
+        if (mRealm != null && !mRealm.isClosed()) {
+            mRealm.close();
+        }
         super.onDestroy();
     }
 

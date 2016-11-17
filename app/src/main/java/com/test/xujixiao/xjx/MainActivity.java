@@ -1,7 +1,7 @@
 package com.test.xujixiao.xjx;
 
 import com.test.xujixiao.xjx.base.BaseActivity;
-import com.test.xujixiao.xjx.fragment.TestFragment;
+import com.test.xujixiao.xjx.fragment.MainFragment;
 
 
 public class MainActivity extends BaseActivity {
@@ -14,7 +14,7 @@ public class MainActivity extends BaseActivity {
 
     @Override
     protected void initData() {
-        addFragment(TestFragment.newInstance());
+        addFragment(MainFragment.newInstance());
     }
 
     @Override
