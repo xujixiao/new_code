@@ -8,7 +8,7 @@ import android.widget.TextView;
 
 import com.blankj.utilcode.utils.ToastUtils;
 import com.test.xujixiao.xjx.R;
-import com.test.xujixiao.xjx.protocol.Area;
+import com.test.xujixiao.xjx.protocol.AreaProtocol;
 import com.test.xujixiao.xjx.protocol.CountyProtocol;
 import com.test.xujixiao.xjx.protocol.ProvinceProtocol;
 import com.test.xujixiao.xjx.protocol.TownProtocol;
@@ -49,7 +49,7 @@ public class WheelDialog extends Dialog {
     private ArrayList<String> mCityData = new ArrayList<>();// 市
     private ArrayList<String> mCountyData = new ArrayList<>();// 县或区
     private View view;
-    private Area mArea;
+    private AreaProtocol mAreaProtocol;
     public SelectAddressInterface mSelectAddressInterface;
 
     public interface SelectAddressInterface {
@@ -97,13 +97,13 @@ public class WheelDialog extends Dialog {
                 provinceId = mProvinceWheel.getCurrentItem();
                 cityId = mCityWheel.getCurrentItem();
                 districtId = mDistrictWheel.getCurrentItem();
-                if (mArea == null || mArea.returnList == null) {
+                if (mAreaProtocol == null || mAreaProtocol.returnList == null) {
                     return;
                 }
                 // 获取省code
                 if (provinceCode != null) {
-                    if (mArea.returnList.size() > provinceId) {
-                        provinceCode = mArea.returnList.get(provinceId).code;
+                    if (mAreaProtocol.returnList.size() > provinceId) {
+                        provinceCode = mAreaProtocol.returnList.get(provinceId).code;
                     }
                 }
                 // 获取城市code
@@ -113,8 +113,8 @@ public class WheelDialog extends Dialog {
                     countyCode = mCountyProtocolList.get(districtId).code;
                 }
 
-                if (mArea.returnList.size() > provinceId) {
-                    provinceName = mArea.returnList.get(provinceId).name;
+                if (mAreaProtocol.returnList.size() > provinceId) {
+                    provinceName = mAreaProtocol.returnList.get(provinceId).name;
                 }
                 if (mTownProtocolList != null && mTownProtocolList.size() != 0) {
                     if (mTownProtocolList.size() > cityId) {
@@ -175,8 +175,8 @@ public class WheelDialog extends Dialog {
                 // 适配市
                 int idProvince = mProvinceWheel.getCurrentItem();
                 mCityData.clear();
-                if (idProvince < mArea.returnList.size()) {
-                    mTownProtocolList = mArea.returnList.get(idProvince).subArea;
+                if (idProvince < mAreaProtocol.returnList.size()) {
+                    mTownProtocolList = mAreaProtocol.returnList.get(idProvince).subArea;
                 } else {
                     return;
                 }
@@ -273,11 +273,11 @@ public class WheelDialog extends Dialog {
     }
 
     // 加载市及县数据
-    public void addData(Area mArea) {
-        this.mArea = mArea;
+    public void addData(AreaProtocol mAreaProtocol) {
+        this.mAreaProtocol = mAreaProtocol;
         //去掉最后三个数据 香港、澳门、台湾
-        for (int i = 0; i < mArea.returnList.size() - 3; i++) {
-            ProvinceProtocol data = mArea.returnList.get(i);
+        for (int i = 0; i < mAreaProtocol.returnList.size() - 3; i++) {
+            ProvinceProtocol data = mAreaProtocol.returnList.get(i);
             mProvinceData.add(data.name);//添加 省 集合
         }
         if (mProvinceWheel != null && mProvinceData != null && context != null) {
@@ -288,7 +288,7 @@ public class WheelDialog extends Dialog {
         //加载 市
         mCityData.clear();
         // mCityData.addAll();
-        mTownProtocolList = mArea.returnList.get(0).subArea;
+        mTownProtocolList = mAreaProtocol.returnList.get(0).subArea;
 
         cityCode = mTownProtocolList.get(0).code;
 //        Log.i("------","---code 0---->{"+code+"}"+cityProtocolList.get(0).name);

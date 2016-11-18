@@ -15,11 +15,13 @@
 #-keepclassmembers class fqcn.of.javascript.interface.for.webview {
 #   public *;
 #}
-
--optimizations !code/simplification/cast,!field/*,!class/merging/*
--optimizationpasses 5
+#压缩代码级别
+-optimizations !code/simplification/cast,!field/*,!class/merging/* # 混淆时所采用的算法
+-optimizationpasses 5  # 指定代码的压缩级别
+-dontusemixedcaseclassnames   # 是否使用大小写混合
 -allowaccessmodification
--dontpreverify
+-dontpreverify           # 混淆时是否做预校验
+-verbose                # 混淆时是否记录日志
 
 
 # The remainder of this file is identical to the non-optimized version
@@ -43,7 +45,7 @@
 
 ### keep options
 #system default, from android example
-#保证android基类不被混淆
+#保证android基类不被混淆 # 保持哪些类不被混淆
 -keep public class * extends android.app.Activity
 -keep public class * extends android.support.v4.app.Fragment
 -keep public class * extends android.app.Application
@@ -413,8 +415,10 @@ public static final ** CREATOR;
 -dontwarn com.baidu.**
 #忽略警告信息
 -ignorewarnings
-#混淆第三方的一个工具包
+
+
+#混淆第三方的一个utils工具包
 #git   https://github.com/Blankj/AndroidUtilCode
 -keep class com.blankj.utilcode.** { *; }
--keep classmembers class com.blankj.utilcode.** { *; }
+-keep  class com.blankj.utilcode.** { *; }
 -dontwarn com.blankj.utilcode.**

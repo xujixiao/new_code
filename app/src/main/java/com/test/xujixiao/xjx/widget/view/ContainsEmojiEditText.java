@@ -11,7 +11,7 @@ import android.widget.EditText;
 import com.blankj.utilcode.utils.ToastUtils;
 
 /**
- * Created by User on 2016/10/12.
+ * 过滤emoji表情的edittext
  */
 public class ContainsEmojiEditText extends EditText {
     //输入表情前的光标位置

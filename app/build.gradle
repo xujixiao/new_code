@@ -16,8 +16,17 @@ android {
         buildConfigField("boolean", "XUJIXIAO", "false")
         buildConfigField("boolean", "XUJIXIAO", "false")
     }
+    signingConfigs {
+        release {
+            storeFile file("../myApp.jks")
+            storePassword ''
+            keyAlias 'myApp'
+            keyPassword ''
+        }
+    }
     buildTypes {
         release {
+            signingConfig signingConfigs.release
             minifyEnabled true
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
