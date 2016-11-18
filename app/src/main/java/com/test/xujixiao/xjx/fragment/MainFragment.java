@@ -1,7 +1,6 @@
 package com.test.xujixiao.xjx.fragment;
 
 import android.os.Bundle;
-import android.support.v7.widget.LinearLayoutManager;
 import android.view.View;
 
 import com.jcodecraeer.xrecyclerview.XRecyclerView;
@@ -11,6 +10,7 @@ import com.test.xujixiao.xjx.base.BaseRecyclerAdapter;
 import com.test.xujixiao.xjx.base.fragment.BaseFragment;
 import com.test.xujixiao.xjx.common.adapter.Test.SingleAdapterTestActivity;
 import com.test.xujixiao.xjx.constants.ChangeAnimType;
+import com.test.xujixiao.xjx.util.RecyclerUtils;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -40,7 +40,7 @@ public class MainFragment extends BaseFragment {
         mList.add("网易云信封装adapter的应用");
         mList.add("Realm数据库用法示例");
         mMainAdapter = new MainAdapter(mBaseActivity, mList);
-        mXrecyclerview.setLayoutManager(new LinearLayoutManager(mBaseActivity));
+        RecyclerUtils.linearDefault(mBaseActivity, mXrecyclerview);
         mXrecyclerview.setLoadingMoreEnabled(false);
         mXrecyclerview.setPullRefreshEnabled(false);
         mXrecyclerview.setAdapter(mMainAdapter);

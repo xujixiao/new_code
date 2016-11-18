@@ -2,7 +2,7 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
               android:layout_width="match_parent"
               android:layout_height="match_parent"
-              android:background="@color/white"
+              android:background="@color/gray"
               android:orientation="vertical"
               android:padding="@dimen/default_margin_12dp">
 
@@ -11,17 +11,29 @@
         style="@style/tv_16_333333_style"
         android:text="配置realm"/>
 
+    <Space
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/default_margin_20dp"/>
+
     <TextView
         android:id="@+id/tv_add"
         style="@style/tv_16_333333_style"
         android:text="添加数据"
         />
 
+    <Space
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/default_margin_20dp"/>
+
     <TextView
         android:id="@+id/tv_search"
         style="@style/tv_16_333333_style"
         android:text="查询数据"
         />
+
+    <Space
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/default_margin_20dp"/>
 
     <TextView
         android:id="@+id/tv_update"
