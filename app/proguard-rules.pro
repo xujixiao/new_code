@@ -27,9 +27,7 @@
 # The remainder of this file is identical to the non-optimized version
 # of the Proguard configuration file (except that the other file has
 # flags to turn off optimization).
--dontusemixedcaseclassnames
 -dontskipnonpubliclibraryclasses
--verbose
 
 # The support library contains references to newer platform versions.
 # Don't warn about those in case this app is linking against an older
@@ -66,6 +64,16 @@
 -keep class com.amap.** {*;}
 -keep class android.webkit.** {*;}
 -keep class com.autonavi.amap.** {*;}
+
+# webview + js
+# keep 使用 webview 的类,这里需要替换为应用程序中使用了webview的那个activity
+-keepclassmembers class com.goldnet.mobile.activity.InfoDetailActivity {
+   public *;
+}
+# keep 使用 webview 的类的所有的内部类
+-keepclassmembers   class com.goldnet.mobile.activity.InfoDetailActivity$*{
+    *;
+}
 #-----------------------------------------------友盟混淆-----------------
 -dontshrink
 -dontoptimize

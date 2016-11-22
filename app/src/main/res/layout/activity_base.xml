@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              xmlns:app="http://schemas.android.com/apk/res-auto"
               android:id="@+id/fragment_container"
               android:layout_width="match_parent"
               android:layout_height="match_parent"
@@ -9,6 +10,21 @@
     <com.jcodecraeer.xrecyclerview.XRecyclerView
         android:id="@+id/xrecyclerview"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
         />
+
+    <com.test.xujixiao.xjx.widget.MainTabLayout
+        android:layout_width="match_parent"
+        android:layout_height="80dp"
+        app:drawable_padding="8dp"
+        app:img1="@mipmap/third_qq_normal_icon"
+        app:img2="@mipmap/third_wechat_normal_icon"
+        app:img3="@mipmap/third_qq_normal_icon"
+        app:img4="@mipmap/third_wechat_normal_icon"
+        app:name1="山东"
+        app:name2="中国"
+        app:name3="南京"
+        app:name4="西藏"
+        app:text_size="14sp"/>
 </LinearLayout>
