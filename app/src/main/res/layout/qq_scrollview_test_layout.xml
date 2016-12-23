@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              xmlns:tools="http://schemas.android.com/tools"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:background="@color/white"
+              android:orientation="vertical">
+
+    <com.test.xujixiao.xjx.custom_view.FlexibleScrollView
+        android:id="@+id/flexible_scroll_vew"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fadingEdge="none"
+        android:fadingEdgeLength="0dp"
+        android:fillViewport="true"
+        android:scrollbars="none">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <include
+                android:id="@+id/flexible_header_view"
+                layout="@layout/flexible_header_layout"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="150dp"
+                android:background="#bbaacc"
+                android:gravity="center"
+                android:text="我是第一行"/>
+
+        </LinearLayout>
+    </com.test.xujixiao.xjx.custom_view.FlexibleScrollView>
+
+    <include
+        android:id="@+id/custom_action_bar"
+        layout="@layout/action_bar_layout"/>
+
+</LinearLayout>
