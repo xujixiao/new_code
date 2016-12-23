@@ -9,8 +9,6 @@ import android.net.Uri;
 import android.support.v4.app.NotificationCompat.Builder;
 import android.util.Log;
 
-import com.test.xujixiao.xjx.util.TLog;
-
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
@@ -46,7 +44,6 @@ public class UChatDownloadService extends IntentService {
 //
         String urlStr = intent.getStringExtra(Constants.APK_DOWNLOAD_URL);
         String appName = intent.getStringExtra(Constants.APP_NAME);
-        TLog.log("获取到url------------" + urlStr);
         int icon = 0;
         switch (appName) {
 //            case "cn.bestkeep":

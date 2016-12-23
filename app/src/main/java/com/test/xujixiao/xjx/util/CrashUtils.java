@@ -8,12 +8,10 @@ import com.tencent.bugly.crashreport.CrashReport;
  */
 public class CrashUtils {
     public static void crash(Exception e) {
-        TLog.log(e.toString());
         CrashReport.postCatchedException(e);
     }
 
     public static void crash(Exception e, String content) {
         CrashReport.postCatchedException(e);
-        TLog.log(content);
     }
 }

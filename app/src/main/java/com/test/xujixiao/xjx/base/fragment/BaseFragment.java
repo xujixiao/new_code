@@ -14,7 +14,6 @@ import android.widget.TextView;
 import com.test.xujixiao.xjx.R;
 import com.test.xujixiao.xjx.base.BaseActivity;
 import com.test.xujixiao.xjx.custom_view.LoadingProgress;
-import com.test.xujixiao.xjx.util.TLog;
 
 import org.simple.eventbus.EventBus;
 
@@ -34,7 +33,7 @@ public abstract class BaseFragment extends Fragment implements View.OnTouchListe
     protected LoadingProgress loadingProgress;
     private AlertDialog loginInvalidDialog;
     protected BaseActivity mBaseActivity;
-    private View mView;
+    protected View mView;
     private Unbinder mUnbinder;
     protected Realm mRealm;
 
@@ -43,6 +42,7 @@ public abstract class BaseFragment extends Fragment implements View.OnTouchListe
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         mView = inflater.inflate(getLayoutId(), container, false);
         mUnbinder = ButterKnife.bind(this, mView);
+        mView.setOnTouchListener(this);
         getTopLayoutViewId();
         return mView;
     }
@@ -57,7 +57,6 @@ public abstract class BaseFragment extends Fragment implements View.OnTouchListe
             topLayoutBack.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    TLog.log("layoutback_____点击");
                     topLeftBackLayoutClick();
                     if (getActivity() != null) {
                         getActivity().finish();
@@ -78,7 +77,7 @@ public abstract class BaseFragment extends Fragment implements View.OnTouchListe
 
     @Override
     public boolean onTouch(View v, MotionEvent event) {
-        return false;
+        return true;
     }
 
     protected void topRightOnClick() {

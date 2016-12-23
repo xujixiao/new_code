@@ -59,7 +59,13 @@
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </activity>
-        <activity android:name="com.test.xujixiao.xjx.common.adapter.Test.SingleAdapterTestActivity"/>
+        <activity android:name=".common.adapter.Test.SingleAdapterTestActivity"/>
+        <activity android:name="swipedemo.MyActivity"/>
+        <activity android:name="swipedemo.GridViewExample"/>
+        <activity android:name="swipedemo.ListViewExample"/>
+        <activity android:name="swipedemo.NestedExample"/>
+        <activity android:name="swipedemo.RecyclerViewExample"/>
     </application>
+
 
 </manifest>

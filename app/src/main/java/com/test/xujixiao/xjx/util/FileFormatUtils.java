@@ -33,13 +33,10 @@ public class FileFormatUtils {
             byte b8 = b[8];
             byte b9 = b[9];
             if (b0 == (byte) 'G' && b1 == (byte) 'I' && b2 == (byte) 'F') {
-                TLog.log("图片类型gif");
                 return 1;
             } else if (b1 == (byte) 'P' && b2 == (byte) 'N' && b3 == (byte) 'G') {
-                TLog.log("图片类型png");
                 return 2;
             } else if (b6 == (byte) 'J' && b7 == (byte) 'F' && b8 == (byte) 'I' && b9 == (byte) 'F') {
-                TLog.log("图片类型jfif");
                 return 3;
             } else {
                 return 0;

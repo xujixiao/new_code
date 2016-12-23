@@ -2,6 +2,8 @@ package com.test.xujixiao.xjx;
 
 import android.app.Application;
 
+import com.apkfuns.logutils.LogUtils;
+
 import io.realm.Realm;
 import io.realm.RealmConfiguration;
 
@@ -14,6 +16,8 @@ public class AppApplication extends Application {
     @Override
     public void onCreate() {
         super.onCreate();
+        LogUtils.getLogConfig().configTagPrefix("xujixiao");
+        LogUtils.getLogConfig().configAllowLog(true);
         initRealmConfig();
     }
 

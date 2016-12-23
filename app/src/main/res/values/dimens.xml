@@ -351,4 +351,7 @@
     <dimen name="fab_margin">16dp</dimen>
 
     <dimen name="title_hight">44dp</dimen>
+
+    <dimen name="header_height">230dp</dimen>
+    <dimen name="common_padding">10dp</dimen>
 </resources>
