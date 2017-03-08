@@ -2,6 +2,7 @@
 /local.properties
 /.idea/workspace.xml
 /.idea/libraries
+/.idea
 .DS_Store
 /build
 /captures
@@ -9,5 +10,6 @@
 /app/new_code.iml
 /settings.gradle
 /gradle.properties
+/gradle.wrapper
 /gradlew
 /gradlew.bat
