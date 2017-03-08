@@ -75,9 +75,15 @@ public abstract class BaseFragment extends Fragment implements View.OnTouchListe
 
     }
 
+//    @Override
+//    public boolean onTouch(View v, MotionEvent event) {
+//        return true;
+//    }
+
+
     @Override
     public boolean onTouch(View v, MotionEvent event) {
-        return true;
+        return false;
     }
 
     protected void topRightOnClick() {

@@ -5,6 +5,7 @@ import android.view.View;
 
 import com.jcodecraeer.xrecyclerview.XRecyclerView;
 import com.test.xujixiao.xjx.R;
+import com.test.xujixiao.xjx.activity.ViewDragLayoutActivity;
 import com.test.xujixiao.xjx.adapter.MainAdapter;
 import com.test.xujixiao.xjx.base.BaseRecyclerAdapter;
 import com.test.xujixiao.xjx.base.fragment.BaseFragment;
@@ -47,6 +48,7 @@ public class MainFragment extends BaseFragment {
         mList.add("仿qq控件下拉放大演示");
         mList.add("弧形progress演示");
         mList.add("签到控件修改演示");
+        mList.add("viewdrag的用法示例");
         mMainAdapter = new MainAdapter(mBaseActivity, mList);
         RecyclerUtils.linearDefault(mBaseActivity, mXrecyclerview);
         mXrecyclerview.setLoadingMoreEnabled(false);
@@ -79,6 +81,10 @@ public class MainFragment extends BaseFragment {
                         break;
                     case 8:
                         mBaseActivity.addFragment(SignViewFragment.newInstance(), ChangeAnimType.LEFT_RIGHT);
+                        break;
+                    case 9:
+                        mBaseActivity.addFragment(ViewDragLayoutFragment.newInstance(), ChangeAnimType.LEFT_RIGHT);
+//                        ViewDragLayoutActivity.start(getActivity());
                         break;
                 }
             }

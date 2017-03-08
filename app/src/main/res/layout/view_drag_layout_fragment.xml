@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.test.xujixiao.xjx.widget.view.ViewDragLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                                                  xmlns:tools="http://schemas.android.com/tools"
+                                                  android:layout_width="match_parent"
+                                                  android:layout_height="match_parent"
+                                                  android:background="@color/white"
+                                                  android:orientation="vertical"
+                                                  android:paddingLeft="@dimen/default_margin_12"
+                                                  android:paddingRight="@dimen/default_margin_20dp">
+
+    <TextView
+        android:layout_width="90dp"
+        android:layout_height="90dp"
+        android:layout_gravity="center"
+        android:background="@color/color_red_ccfa3c55"
+        android:gravity="center"
+        android:text="一般的拖动效果"/>
+
+    <TextView
+        android:layout_width="90dp"
+        android:layout_height="90dp"
+        android:layout_gravity="center"
+        android:background="@color/color_red_ccfa3c55"
+        android:gravity="center"
+        android:text="自动回弹的拖动效果"/>
+
+    <TextView
+        android:layout_width="90dp"
+        android:layout_height="90dp"
+        android:layout_gravity="center"
+        android:background="@color/color_red_ccfa3c55"
+        android:gravity="center"
+        android:text="边界拖动效果"/>
+</com.test.xujixiao.xjx.widget.view.ViewDragLayout>
