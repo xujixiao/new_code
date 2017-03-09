@@ -6,6 +6,7 @@ buildscript {
     }
     dependencies {
         classpath 'com.android.tools.build:gradle:2.2.1'
+        classpath 'com.novoda:bintray-release:0.3.4'
         /*apt插件需要，butterknife就需要的*/
         classpath 'com.neenbedankt.gradle.plugins:android-apt:1.8'
         classpath 'com.jfrog.bintray.gradle:gradle-bintray-plugin:1.0'
